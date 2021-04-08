@@ -1,0 +1,14 @@
+--maas ortalamasý 5.500'den fazla olan departmanlari listele.
+--DEPARTMENT,AVGSALARY
+
+-- 2.YONTEM (Dynamic View)
+SELECT * FROM
+(
+SELECT 
+D.DEPARTMENT,
+ROUND(AVG(P.SALARY),2) AS AVG_SALARY
+FROM DEPARTMENT D
+INNER JOIN PERSON P ON P.DEPARTMENTID=D.ID
+GROUP BY D.DEPARTMENT
+) T  WHERE AVG_SALARY>5500 --DynamicView tanimlayip, kosulu WHERE ile en sona yazdim.
+ORDER BY AVG_SALARY DESC
