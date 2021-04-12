@@ -2,7 +2,10 @@
 --CITY,CATEGORY1,TOTALSALE olarak getir.
 
 SELECT 
-S.CITY,S1.CATEGORY1,SUM(S1.TOTALSALE) AS TOTALSALE
+S.CITY,
+S1.CATEGORY1,
+SUM(S1.TOTALSALE) AS TOTALSALE --bu SUM baska bir SQL'in icerisinden hesaplanarak gelmeli. 
+                               -- O yuzden CROSS APPLY yaptik. 
 
 FROM SALEORDERS S
 CROSS APPLY
